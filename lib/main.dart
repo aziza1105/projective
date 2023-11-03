@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:product/features/authenticiation/presentation/login_screen.dart';
+import 'package:product/features/authenticiation/presentation/widgets/authenticated_user.dart';
 import 'package:product/features/home/home.dart';
 
 import 'assets/theme/theme.dart';
@@ -28,6 +30,16 @@ class _AppState extends State<App> {
     onGenerateRoute: (settings) => MaterialPageRoute(
       builder: (_) => const SizedBox(),
     ),
-    builder: (context, child) => const HomeScreen(),
+    home:  AuthenticatedUser(
+      child: Builder(builder: (context) {
+        print("Came here");
+
+        if (AuthenticatedUser.maybeOf(context)?.user == null) {
+          return const LoginScreen();
+        } else {
+          return const HomeScreen();
+        }
+      }),
+    ),
   );
 }
