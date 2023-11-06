@@ -226,16 +226,26 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   const Gap(16),
-                  WButton(
-                    isDisabled: !isLoginDataValid,
-                    onTap: () {
-                      if (formKey.currentState!.validate()) {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => VerificationPage()));
-                      }
 
+                  AnimatedButton(
+                    onTap: () {
+                      // Handle button tap
                     },
                     text: 'Login',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                    buttonColor: Colors.blue,
+                    height: 50,
+                    width: 700,
+
                   ),
+
+
+
+
                   const Gap(56),
                   const Row(
                     children: [

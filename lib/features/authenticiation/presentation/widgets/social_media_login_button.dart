@@ -15,7 +15,7 @@ class SocialMediaLoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WButton(
+    return AnimatedButton(
       buttonColor: socialMediaButtonColor,
       width: 62,
       height: 48,

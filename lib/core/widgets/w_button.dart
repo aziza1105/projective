@@ -1,8 +1,12 @@
+
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../../assets/constants/colors.dart';
 
-class WButton extends StatelessWidget {
+
+
+class AnimatedButton extends StatefulWidget {
   final Function() onTap;
   final String text;
   final bool isDisabled;
@@ -14,7 +18,8 @@ class WButton extends StatelessWidget {
   final double? width;
   final double? height;
   final Widget? child;
-  const WButton({
+
+  const AnimatedButton({
     required this.onTap,
     this.isDisabled = false,
     this.isLoading = false,
@@ -30,44 +35,95 @@ class WButton extends StatelessWidget {
   });
 
   @override
+  _AnimatedButtonState createState() => _AnimatedButtonState();
+}
+
+
+
+class _AnimatedButtonState extends State<AnimatedButton>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+  late Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
+
+    _scaleAnimation = Tween<double>(begin: 1, end: 0.9).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.easeInOut,
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (!isDisabled && !isLoading) {
-          onTap();
+        if (!widget.isDisabled && !widget.isLoading) {
+          widget.onTap();
         }
       },
-      child: Container(
-        height: height,
-        width: width ?? double.maxFinite,
-        alignment: Alignment.center,
-        margin: margin ?? EdgeInsets.zero,
-        padding: padding ?? const EdgeInsets.symmetric(vertical: 15),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: isDisabled ? disabledButtonColor : buttonColor ?? wButtonColor,
-        ),
-        child: Builder(
-          builder: (_) {
-            if (isLoading) {
-              return const CupertinoActivityIndicator();
-            }
-            if (child == null) {
-              return Text(
-                text,
-                style: style ??
-                    TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: isDisabled ? white.withOpacity(.3) : white,
-                    ),
-              );
-            } else {
-              return child!;
-            }
-          },
-        ),
+      onTapDown: (_) => _animationController.forward(),
+      onTapUp: (_) => _animationController.reverse(),
+      onTapCancel: () => _animationController.reverse(),
+      child: AnimatedBuilder(
+        animation: _animationController,
+        builder: (_, __) {
+          return Transform.scale(
+            scale: _scaleAnimation.value,
+            child: Container(
+              height: widget.height,
+              width: widget.width ?? double.maxFinite,
+              alignment: Alignment.center,
+              margin: widget.margin ?? EdgeInsets.zero,
+              padding: widget.padding ?? const EdgeInsets.symmetric(vertical: 15),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: widget.isDisabled
+                    ? disabledButtonColor
+                    : widget.buttonColor ?? wButtonColor,
+              ),
+              child: Builder(
+                builder: (_) {
+                  if (widget.isLoading) {
+                    return const CupertinoActivityIndicator();
+                  }
+                  if (widget.child == null) {
+                    return Text(
+                      widget.text,
+                      style: widget.style ??
+                          TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: widget.isDisabled
+                                ? white.withOpacity(.3)
+                                : white,
+                          ),
+                    );
+                  } else {
+                    return widget.child!;
+                  }
+                },
+              ),
+            ),
+          );
+        },
       ),
     );
   }
 }
+
+
