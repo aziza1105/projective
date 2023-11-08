@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:product/core/widgets/w_button.dart';
+import 'package:product/features/authenticiation/presentation/pages/forgot_password/forgot_password_page.dart';
 import 'package:product/features/authenticiation/presentation/widgets/social_media_login_button.dart';
-import 'package:product/features/authenticiation/presentation/widgets/verification.dart';
+import 'package:product/features/authenticiation/presentation/pages/verification/verification_page.dart';
 
 import '../../../assets/constants/colors.dart';
 import '../../../assets/constants/icons.dart';
@@ -124,12 +125,12 @@ class _LoginScreenState extends State<LoginScreen> {
     passwordFocusNode.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Builder(builder: (context) {
-        return GestureDetector(
+        resizeToAvoidBottomInset: false,
+        body: GestureDetector(
           behavior: HitTestBehavior.opaque,
           onTap: () {
             if (FocusScope.of(context).hasFocus) {
@@ -202,6 +203,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       } else if (value.length < 7) {
                         return 'Parol eng kamida 8ta belgidan tashkil topgan bo\'lishi kerak';
                       }
+
                       return null;
                     },
                   ),
@@ -209,11 +211,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   Align(
                     alignment: Alignment.centerRight,
                     child: GestureDetector(
-                      onTap: () {ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Bu button hali ishlamaydi'),
-                        ),
-                      );
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ForgotPasswordPage(),
+                          ),
+                        );
                       },
                       child: const Text(
                         'Forgot password?',
@@ -226,26 +230,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   const Gap(16),
-
-                  AnimatedButton(
+                  WButton(
+                    isDisabled: !isLoginDataValid,
                     onTap: () {
-                      // Handle button tap
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const VerificationPage(),
+                        ),
+                      );
                     },
                     text: 'Login',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                    buttonColor: Colors.blue,
-                    height: 50,
-                    width: 700,
-
                   ),
-
-
-
-
                   const Gap(56),
                   const Row(
                     children: [
@@ -281,8 +276,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           ),
-        );
-      }),
-    );
+        ));
   }
 }

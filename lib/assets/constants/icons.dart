@@ -14,6 +14,7 @@ sealed class AppIcons {
   static const facebook = '${_global}facebook.svg';
   static const google = '${_global}google.svg';
   static const logo = '${_global}logo.svg';
+  static const profilePicture = '${_global}profilePicture.png';
 
   // ------------------  Tasks Folder  ----------------------- //
   static const hamburger = '${_tasks}hamburger.svg';
