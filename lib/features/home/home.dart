@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:product/features/home/navbar.dart';
+
 
 import '../../assets/constants/colors.dart';
 import '../../assets/constants/icons.dart';
+import 'navbar.dart';
 import 'navigator.dart';
 import 'widgets/nav_bar_item.dart';
 
@@ -83,115 +84,116 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       NavBar(id: 3, icon: AppIcons.calendar, title: "Calendar"),
       NavBar(id: 4, icon: AppIcons.stats, title: "Stats"),
     ];
+
     return AnnotatedRegion(
-        value: const SystemUiOverlayStyle(
+      value: const SystemUiOverlayStyle(
         statusBarColor: Colors.white,
         statusBarBrightness: Brightness.dark,
         statusBarIconBrightness: Brightness.dark,
         systemNavigationBarColor: white,
-    ),
-    child: HomeTabControllerProvider(
-    controller: _controller,
-    child: WillPopScope(
-    onWillPop: () async {
-    final isFirstRouteInCurrentTab =
-    !await _navigatorKeys[NavItemEnum.values[_currentIndex]]!
-        .currentState!
-        .maybePop();
-    if (isFirstRouteInCurrentTab) {
-    if (NavItemEnum.values[_currentIndex] != NavItemEnum.tasks) {
-    changePage(0);
-    return false;
-    }
-    }
-    return isFirstRouteInCurrentTab;
-    },
-    child: Scaffold(
-    resizeToAvoidBottomInset: true,
-    bottomNavigationBar: Container(
-    height: 75 + MediaQuery.of(context).padding.bottom,
-    decoration: BoxDecoration(
-    borderRadius: const BorderRadius.only(
-    topLeft: Radius.circular(20),
-    topRight: Radius.circular(20)),
-    color: navigationBarBackgroundColor,
-    boxShadow: [
-    BoxShadow(
-    color: const Color(0xff1F211C).withOpacity(0.08),
-    blurRadius: 30,
-    offset: const Offset(0, -4),
-    )
-    ],
-    ),
-    child: TabBar(
-    enableFeedback: true,
-    onTap: (index) {},
-    indicator: const BoxDecoration(),
-    controller: _controller,
-    labelPadding: EdgeInsets.zero,
-    tabs: [
-    TabItemWidget(
-    onActiveTap: () {
-    _navigatorKeys[NavItemEnum.values[_currentIndex]]
-        ?.currentState
-        ?.popUntil((route) => route.isFirst);
-    },
-    isActive: _currentIndex == 0,
-    item: labels[0],
-    ),
-    TabItemWidget(
-    onActiveTap: () {
-    _navigatorKeys[NavItemEnum.values[_currentIndex]]
-        ?.currentState
-        ?.popUntil((route) => route.isFirst);
-    },
-    isActive: _currentIndex == 1,
-    item: labels[1],
-    ),
-    TabItemWidget(
-    onActiveTap: () {
-    _navigatorKeys[NavItemEnum.values[_currentIndex]]
-        ?.currentState
-        ?.popUntil((route) => route.isFirst);
-    },
-    isActive: _currentIndex == 2,
-    item: labels[2],
-    ),
-    TabItemWidget(
-    onActiveTap: () {
-    _navigatorKeys[NavItemEnum.values[_currentIndex]]
-        ?.currentState
-        ?.popUntil((route) => route.isFirst);
-    },
-    isActive: _currentIndex == 3,
-    item: labels[3],
-    ),
-    TabItemWidget(
-    onActiveTap: () {
-    _navigatorKeys[NavItemEnum.values[_currentIndex]]
-        ?.currentState
-        ?.popUntil((route) => route.isFirst);
-    },
-    isActive: _currentIndex == 4,
-    item: labels[4],
-    ),
-    ],
-    ),
-    ),
-    body: TabBarView(
-    controller: _controller,
-    physics: const NeverScrollableScrollPhysics(),
-    children: [
-    _buildPageNavigator(NavItemEnum.tasks),
-    _buildPageNavigator(NavItemEnum.expenses),
-    _buildPageNavigator(NavItemEnum.create),
-      _buildPageNavigator(NavItemEnum.calendar),
-      _buildPageNavigator(NavItemEnum.stats),
-    ],
-    ),
-    ),
-    ),
-    ),
+      ),
+      child: HomeTabControllerProvider(
+        controller: _controller,
+        child: WillPopScope(
+          onWillPop: () async {
+            final isFirstRouteInCurrentTab =
+            !await _navigatorKeys[NavItemEnum.values[_currentIndex]]!
+                .currentState!
+                .maybePop();
+            if (isFirstRouteInCurrentTab) {
+              if (NavItemEnum.values[_currentIndex] != NavItemEnum.tasks) {
+                changePage(0);
+                return false;
+              }
+            }
+            return isFirstRouteInCurrentTab;
+          },
+          child: Scaffold(
+            resizeToAvoidBottomInset: true,
+            bottomNavigationBar: Container(
+              height: 75 + MediaQuery.of(context).padding.bottom,
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20)),
+                color: navigationBarBackgroundColor,
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0xff1F211C).withOpacity(0.08),
+                    blurRadius: 30,
+                    offset: const Offset(0, -4),
+                  )
+                ],
+              ),
+              child: TabBar(
+                enableFeedback: true,
+                onTap: (index) {},
+                indicator: const BoxDecoration(),
+                controller: _controller,
+                labelPadding: EdgeInsets.zero,
+                tabs: [
+                  TabItemWidget(
+                    onActiveTap: () {
+                      _navigatorKeys[NavItemEnum.values[_currentIndex]]
+                          ?.currentState
+                          ?.popUntil((route) => route.isFirst);
+                    },
+                    isActive: _currentIndex == 0,
+                    item: labels[0],
+                  ),
+                  TabItemWidget(
+                    onActiveTap: () {
+                      _navigatorKeys[NavItemEnum.values[_currentIndex]]
+                          ?.currentState
+                          ?.popUntil((route) => route.isFirst);
+                    },
+                    isActive: _currentIndex == 1,
+                    item: labels[1],
+                  ),
+                  TabItemWidget(
+                    onActiveTap: () {
+                      _navigatorKeys[NavItemEnum.values[_currentIndex]]
+                          ?.currentState
+                          ?.popUntil((route) => route.isFirst);
+                    },
+                    isActive: _currentIndex == 2,
+                    item: labels[2],
+                  ),
+                  TabItemWidget(
+                    onActiveTap: () {
+                      _navigatorKeys[NavItemEnum.values[_currentIndex]]
+                          ?.currentState
+                          ?.popUntil((route) => route.isFirst);
+                    },
+                    isActive: _currentIndex == 3,
+                    item: labels[3],
+                  ),
+                  TabItemWidget(
+                    onActiveTap: () {
+                      _navigatorKeys[NavItemEnum.values[_currentIndex]]
+                          ?.currentState
+                          ?.popUntil((route) => route.isFirst);
+                    },
+                    isActive: _currentIndex == 4,
+                    item: labels[4],
+                  ),
+                ],
+              ),
+            ),
+            body: TabBarView(
+              controller: _controller,
+              physics: const NeverScrollableScrollPhysics(),
+              children: [
+                _buildPageNavigator(NavItemEnum.tasks),
+                _buildPageNavigator(NavItemEnum.expenses),
+                _buildPageNavigator(NavItemEnum.create),
+                _buildPageNavigator(NavItemEnum.calendar),
+                _buildPageNavigator(NavItemEnum.stats),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

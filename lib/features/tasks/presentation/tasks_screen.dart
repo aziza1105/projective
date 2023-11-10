@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:product/assets/constants/colors.dart';
 import 'package:product/assets/constants/icons.dart';
 import 'package:product/features/tasks/presentation/pages/all.dart';
+import 'package:product/features/tasks/presentation/pages/notes_screen.dart';
 import 'package:product/features/tasks/presentation/pages/upcoming.dart';
+import '../../../assets/constants/colors.dart';
 
 class TaskScreen extends StatefulWidget {
   const TaskScreen({super.key});
@@ -27,59 +28,238 @@ class _TaskScreenState extends State<TaskScreen>
     return SafeArea(
       child: Scaffold(
         drawer: Drawer(
-
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              const Spacer(),
-              SvgPicture.asset(AppIcons.sun),
-
-              UserAccountsDrawerHeader(
-                accountName: Text('Rozan'),
-                accountEmail: Text('rozan.hasan.matar115@gmail...'),
-                currentAccountPicture: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  child: SvgPicture.asset(AppIcons.avatar),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 20, 16, 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  width: 244,
+                  height: 72,
+                  color: scaffoldBackgroundColor,
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [SvgPicture.asset(AppIcons.sun)],
+                      ),
+                      Row(
+                        children: [
+                          Image.asset(
+                            AppIcons.profilePicture,
+                            height: 48,
+                            width: 48,
+                          ),
+                          const SizedBox(
+                            width: 8,
+                          ),
+                          const Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Rozan",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontFamily: "Barlow",
+                                      fontWeight: FontWeight.w700),
+                                ),
+                                SizedBox(
+                                  height: 4,
+                                ),
+                                Text(
+                                  "hozar.rasan.matar115@gmail.com",
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily: "Barlow",
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                  softWrap: false,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 ),
-              ),
-              ListTile(
-                leading: SvgPicture.asset(AppIcons.star),
-                title: Text('Premium'),
-                onTap: () {},
-              ),
-              ListTile(
-                leading: SvgPicture.asset(AppIcons.settings),
-                title: Text('Settings'),
-                onTap: () {},
-              ),
+                const SizedBox(
+                  height: 36,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                  ),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          SvgPicture.asset(
+                            AppIcons.star,
+                          ),
+                          const SizedBox(
+                            width: 12,
+                          ),
+                          const Text(
+                            "Premium",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Barlow",
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
 
-              ListTile(
-                leading: SvgPicture.asset(AppIcons.articles),
-                title: Text('Articles'),
-                onTap: () {},
-              ),
-              ListTile(
-                leading: SvgPicture.asset(AppIcons.help),
-                title: Text('Help'),
-                onTap: () {},
-              ),
-              ListTile(
-                leading: SvgPicture.asset(AppIcons.terms),
-                title: Text('Terms'),
-                onTap: () {},
-              ),
-              ListTile(
-                leading: SvgPicture.asset(AppIcons.faq),
-                title: Text('FAQ'),
-                onTap: () {},
-              ),
 
-            ],
+                      const SizedBox(
+                        height: 22.5,
+                      ),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: SvgPicture.asset(
+                              AppIcons.settings,
+                              width: 20,
+                              height: 20,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 12,
+                          ),
+                          const Text(
+                            "Settings",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Barlow",
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 30.5,
+                      ),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(4, 2, 4, 2),
+                            child: SvgPicture.asset(
+                              AppIcons.articles,
+                              width: 16,
+                              height: 20,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 12,
+                          ),
+                          const Text(
+                            "Articles",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Barlow",
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 18.5,
+                      ),
+                      const Divider(
+                        height: 0.5,
+                      ),
+                      const SizedBox(
+                        height: 18.5,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Row(
+                          children: [
+                            SvgPicture.asset(
+                              AppIcons.help,
+                              width: 24,
+                              height: 24,
+                            ),
+                            const SizedBox(
+                              width: 12,
+                            ),
+                            const Text(
+                              "Help",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontFamily: "Barlow",
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 29,
+                      ),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: SvgPicture.asset(
+                              AppIcons.terms,
+                              width: 20,
+                              height: 20,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 12,
+                          ),
+                          const Text(
+                            "Terms",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Barlow",
+                              fontWeight: FontWeight.w500,
+                            ),
+
+
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 29,
+                      ),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: SvgPicture.asset(
+                              AppIcons.faq,
+                              width: 20,
+                              height: 20,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 12,
+                          ),
+                          const Text(
+                            "FAQ",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Barlow",
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
-
-
-
         appBar: AppBar(
           automaticallyImplyLeading: false,
           titleSpacing: 0,
@@ -101,7 +281,15 @@ class _TaskScreenState extends State<TaskScreen>
                       );
                     }),
                     const Spacer(),
-                    SvgPicture.asset(AppIcons.note),
+                    GestureDetector(
+                        onTap:() {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (
+                                context) => const NotesScreen()),
+                          );
+                        },
+                        child: SvgPicture.asset(AppIcons.note)),
                     const SizedBox(width: 24),
                     SvgPicture.asset(AppIcons.notification),
                   ],

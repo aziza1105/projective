@@ -32,7 +32,7 @@ class _AppState extends State<App> {
     ),
     home:  AuthenticatedUser(
       child: Builder(builder: (context) {
-        print("Came here");
+
 
         if (AuthenticatedUser.maybeOf(context)?.user == null) {
           return const LoginScreen();

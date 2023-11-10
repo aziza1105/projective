@@ -15,6 +15,8 @@ sealed class AppIcons {
   static const google = '${_global}google.svg';
   static const logo = '${_global}logo.svg';
   static const profilePicture = '${_global}profilePicture.png';
+  static const String illustration1 = "assets/images/img.png";
+  static const String illustration2 = "assets/images/img_1.pnj";
 
   // ------------------  Tasks Folder  ----------------------- //
   static const hamburger = '${_tasks}hamburger.svg';
@@ -33,5 +35,18 @@ sealed class AppIcons {
   static const gym = '${_tasks}gym.svg';
   static const meet = '${_tasks}meet.svg';
   static const books = '${_tasks}books.svg';
-
+  static const work1 = '${_tasks}work1.svg';
+  static const task2 = '${_tasks}task2.svg';
+  static const link = '${_tasks}link.svg';
+  static const arrowLeft = '${_tasks}arrow_left.svg';
+  static const arrowRight = '${_tasks}arrow_right.svg';
+  static const bold = '${_tasks}bold.svg';
+  static const duass = '${_tasks}duas.png';
+  static const loader = '${_tasks}loader.svg';
+  static const memories = '${_tasks}memories.png';
+  static const passwords = '${_tasks}passwords.png';
+  static const plusBook = '${_tasks}plus_book.png';
+  static const trash = '${_tasks}trash.svg';
+  static const voice = '${_tasks}voice.svg';
+  static const add = '${_tasks}add.svg';
 }

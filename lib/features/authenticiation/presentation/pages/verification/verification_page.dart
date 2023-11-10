@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:pinput/pinput.dart';
-import 'package:product/assets/constants/colors.dart';
-
+import '../../../../../assets/constants/colors.dart';
 import '../../../../../assets/constants/icons.dart';
 import '../../../../home/home.dart';
 
@@ -24,13 +23,15 @@ class _VerificationPageState extends State<VerificationPage> {
     decoration: BoxDecoration(
       color: textFieldBackgroundColor2,
       border: Border.all(
-        color: pinPutBorderColor.withOpacity(0.1),
+        color: Colors.blueAccent.withOpacity(0.1),
       ),
       borderRadius: BorderRadius.circular(8),
     ),
   );
   final TextEditingController pinPutController = TextEditingController();
   bool isPinPutValid = false;
+  bool isError = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,39 +60,48 @@ class _VerificationPageState extends State<VerificationPage> {
               const Gap(12),
               Pinput(
                 length: 4,
+                forceErrorState: isError,
                 controller: pinPutController,
                 enableSuggestions: isPinPutValid,
                 defaultPinTheme: isPinPutValid
                     ? defaultPinTheme.copyBorderWith(
                     border: Border.all(
-                      color: green,
+                      color: Colors.green,
                     ))
                     : defaultPinTheme,
                 focusedPinTheme: defaultPinTheme.copyBorderWith(
                   border: Border.all(
-                    color: pinPutBorderColor,
+                    color: Colors.blueAccent,
                   ),
                 ),
                 errorPinTheme: defaultPinTheme.copyBorderWith(
                   border: Border.all(
-                    color: Colors.red
+                    color: errorColor,
                   ),
                 ),
                 onChanged: (value) {
-                  if (value == '1111') {
-                    isPinPutValid = true;
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()),
-                    );
+                  if (value.length == 4) {
+                    if ('7777' == value) {
+                      isPinPutValid = true;
+                      setState(() {});
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const HomeScreen(),
+                        ),
+                      );
+                    } else {
+                      isError = true;
+                    }
+                    setState(() {
 
-                    setState(() {});
+                    });
                   } else {
                     isPinPutValid = false;
+                    isError = false;
                     setState(() {});
                   }
                 },
-              )
+              ),
             ],
           ),
         ));

@@ -116,16 +116,22 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             Form(
               key: formKey,
               child: TextFormField(
+
                 focusNode: mailFocusNode,
                 style: textFieldContentStyle,
                 cursorColor: cursorColor,
                 controller: emailController,
                 decoration: decoration(hintText: 'Email'),
+
                 textInputAction: TextInputAction.next,
                 keyboardType: TextInputType.emailAddress,
-                onEditingComplete: () {
-                  // passwordFocusNode.requestFocus();
+                onFieldSubmitted: (value) {
+                  mailFocusNode.unfocus(); // This will hide the keyboard after the email field is submitted
                 },
+
+
+                onEditingComplete: () {},
+
                 validator: (value) {
                   print('ishlayapti');
                   if (value == null || value.isEmpty) {
