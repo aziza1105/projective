@@ -1,65 +1,62 @@
 import 'package:flutter/material.dart';
-import 'package:product/features/on_boarding/widgets/page_content.dart';
-import 'package:product/features/on_boarding/widgets/center_dots.dart';
-import 'package:product/assets/constants/icons.dart';
 
-import '../../assets/constants/colors.dart';
-
-
-class OnBoardingScreen extends StatefulWidget {
-  const OnBoardingScreen({Key? key}) : super(key: key);
+class Page_One extends StatefulWidget {
+  const Page_One({Key? key}) : super(key: key);
 
   @override
-  State<OnBoardingScreen> createState() => _OnBoardingScreenState();
+  State<Page_One> createState() => _Page_OneState();
 }
-class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
-  int pageIndex = 0;
-
+class _Page_OneState extends State<Page_One> {
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(
-        actions: [],
-        backgroundColor: AppColors.c_131524,
-        elevation: 0,
-      ),
-      backgroundColor: AppColors.c_131524,
-      body: Column(
-        children: [Expanded(
-          child: PageView(
-            onPageChanged: (pageIndexInValue){
-              pageIndex = pageIndexInValue;
-              setState(() {});
-              print("CURRENT  PAGE INDEX: $pageIndexInValue");
-            },
+      // backgroundColor: onBoardingColor,
+      body: Container(
+        width: 500,
+        height: 600,
+        child: Center(
+          child: Column(
             children: [
-              PageContent(
-                imagePaht: AppIcons.illustration1,
-                title: "Easy Time Management",
-                height: height,
-                title2: '''We help you stay organized and 
-                               manage your day''', imageHeight: 310,
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 83,
+                  left: 16,
+                  right: 16,
+                ),
+                child: Image.asset("assets/images/img.png"),
               ),
-              PageContent(
-                imagePaht: AppIcons.illustration2,
-                title: "Track Your Expense",
-                height: height,
-                title2: '''We help you organize your expenses 
-                                 easily and safely''', imageHeight: 310,
+              Padding(
+                padding: const EdgeInsets.only(top: 40.0),
+                child: Column(
+                  children: [
+                    Center(
+                      child: Text(
+                        "Easy Time Management",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Center(
+                        child: Text(
+                          "We help you stay organized and\n           manage your day",
+                          style: TextStyle(color: Colors.grey,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w400),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-
             ],
           ),
         ),
-
-          SizedBox(height: height*(123/812),),
-          SenterDots(activeDotIndex: pageIndex),
-          SizedBox(height: height*(42/812),),
-
-        ],
-
       ),
     );
   }

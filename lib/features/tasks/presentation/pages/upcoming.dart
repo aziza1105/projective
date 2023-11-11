@@ -130,21 +130,34 @@ class UpcomingPage extends StatelessWidget {
     color: Colors.white),
     ),
     const Gap(13),
-    Row(
-    children: [
-    SvgPicture.asset(
-    AppIcons.link),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
 
-    Text(
-    'Link to meeting',
-
-    style: TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: 12,
-    color: Colors.white),
-    )
-    ],
-    ),
+                      borderRadius: BorderRadius.only(topLeft: Radius.circular(4)),
+                      color: darkBlue,
+                    ),
+                    padding: EdgeInsets.all(8),
+                    child: SvgPicture.asset(AppIcons.link),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(topRight: Radius.circular(4)),
+                      color: ligtBlue,
+                    ),
+                    padding: EdgeInsets.all(8),
+                    child: Text(
+                      'Link to meeting',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 12,
+                          color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
     ]
         )
     ),
@@ -178,7 +191,7 @@ class UpcomingPage extends StatelessWidget {
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
     Text(
-    'Study for the constitutional judiciary test',
+    'Study for the constitutional\njudiciary test',
     style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
     ),
     Text(

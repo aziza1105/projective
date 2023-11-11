@@ -3,8 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:pinput/pinput.dart';
 import 'package:product/assets/constants/icons.dart';
+import 'package:product/features/tasks/presentation/pages/note_widget.dart';
+import 'package:product/features/tasks/presentation/pages/notes_model.dart';
 import '../../../../assets/constants/colors.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 
 
 class NotesScreen extends StatefulWidget {
@@ -33,6 +34,38 @@ class _NotesScreenState extends State<NotesScreen> {
 
   @override
   Widget build(BuildContext context) {
+    List <NotesModel> containers = [
+      NotesModel(
+          title: 'Commitment resource lecture',
+          underTitle: 'We explained the definition of commitment and it..',
+          data: '15 November',
+          image: '',
+          voice: ''),
+      NotesModel(
+          title: 'Duas',
+          underTitle: 'Allahuma aeni ealaa dikrika wa shukrika wa husn e..',
+          data: '15 November',
+          image: '',
+          voice: ''),
+      NotesModel(
+          title: 'Commitment resource lecture',
+          underTitle: 'We explained the definition of commitmen..',
+          data: '15 November',
+          image: AppIcons.duass,
+          voice: AppIcons.voice),
+      NotesModel(
+          title: 'Commitment resource lecture',
+          underTitle: 'We explained the definition of commitment and it..',
+          data: '15 November',
+          image: '',
+          voice: ''),
+      NotesModel(
+          title: 'Commitment resource lecture',
+          underTitle: 'We explained the definition of commitment and it..',
+          data: '15 November',
+          image: '',
+          voice: ''),
+    ];
     return Scaffold(
       appBar: AppBar(
         title: const Column(
@@ -60,351 +93,125 @@ class _NotesScreenState extends State<NotesScreen> {
         children:[
 
           Padding(
-            padding: const EdgeInsets.only(right: 16.0,left: 16.0),
-            child: Column(
-              children: [
-                const Gap(16),
+              padding: const EdgeInsets.only(right: 16.0,left: 16.0),
+              child: Column(
+                children: [
+                  const Gap(16),
 
-                const Row(
-                  children: [
-                    Text('Books',style:
-                    TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.w600,),),
-                  ],
-                ),
-
-
-
-                const Gap(16),
-                Row(
-                  children: [
-                    Column(
-                      children: [
-                        Image.asset(
-                          AppIcons.passwords,
-                          height: 91,
-                          width: 71.035,
-                        ),
-                        const Gap(8),
-                        const Text('Passwords',
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: white,
-                                fontWeight: FontWeight.w500
-                            )),
-                      ],
-                    ),
-
-                    const SizedBox(width: 68),
-
-
-                    Column(
-                      children: [
-                        Image.asset(
-                          AppIcons.memories,
-                          height: 91,
-                          width: 71.035,
-                        ),
-                        const Gap(8),
-                        const Text('Memories',
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: white,
-                                fontWeight: FontWeight.w500
-                            )),
-                      ],
-                    ),
-
-                    const SizedBox(width: 68),
-                    Column(
-                      children: [
-                        Image.asset(
-                          AppIcons.plusBook,
-                          height: 91,
-                          width: 71.035,
-                        ),
-                        const Gap(8),
-                        const Text('',
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: white,
-                                fontWeight: FontWeight.w500
-                            )
-                        ),
-
-                      ],
-                    ),
-                    const SizedBox(height: 25),
-
-                  ],
-                ),
-                const Gap(25),
-                Row(
-                  children: [
-                    const Text('Quick Notes',style:
-                    TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.w600,),),
-                    const Spacer(),
-                    SvgPicture.asset(AppIcons.add),
-                  ],
-                ),
-
-
-                const Gap(20),
-                Container(
-                  padding: const EdgeInsets.only(
-                    top: 8,
-                    bottom: 8,
-                    right: 30,
-                    left: 16,
-                  ),
-
-                  width: 360,
-                  height: 81,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: textFieldBackgroundColor,
-                  ),
-                  child: const Column(
-                      children: [
-
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Commitment resource lecture',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 18),
-                            ),
-                            Text(
-                              'We explained the definition of commitment and it..',
-                              style:TextStyle(color: Colors.grey,fontSize: 14) ,
-                            ),
-                            Gap(8),
-                            Text(
-                              '15 November',
-                              style: TextStyle(fontSize: 12, ),
-                            )
-                          ],
-                        ),
-
-
-                      ]
+                  const Row(
+                    children: [
+                      Text('Books',style:
+                      TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.w600,),),
+                    ],
                   ),
 
 
 
-                ),
-                const Gap(12),
-                Container(
-
-                  padding: const EdgeInsets.only(
-                    top: 8,
-                    bottom: 8,
-                    right: 30,
-                    left: 16,
-                  ),
-
-                  width: 360,
-                  height: 81,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: textFieldBackgroundColor,
-                  ),
-                  child: const Column(
-                      children: [
-
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Duas',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 18),
-                            ),
-                            Text(
-                              'Allahuma aeni ealaa dikrika wa shukrika wa husn e..',
-                              style:TextStyle(color: Colors.grey,fontSize: 14) ,
-                            ),
-                            Gap(8),
-                            Text(
-                              '15 November',
-                              style: TextStyle(fontSize: 12, ),
-                            )
-                          ],
-                        ),
-
-
-                      ]
-                  ),
-
-
-
-                ),
-                const Gap(12),
-                Container(
-                  padding: const EdgeInsets.only(
-                    top: 8,
-                    bottom: 2,
-                    right: 8,
-                    left: 20,
-                  ),
-
-                  width: 360,
-                  height: 81,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: textFieldBackgroundColor,
-                  ),
-                  child:   Row(
+                  const Gap(16),
+                  Row(
                     children: [
                       Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Commitment resource lecture',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 18),
+                          Image.asset(
+                            AppIcons.passwords,
+                            height: 91,
+                            width: 71.035,
                           ),
-
-                          Text(
-                            'We explained the definition of commitmen..',
-                            style:TextStyle(color: Colors.grey,fontSize: 14) ,
-                          ),
-
-
-                          Gap(8),
-                          Row(
-                            children: [
-                              Text(
-                                '15 November',
-                                style: TextStyle(fontSize: 12, ),
-                              ),
-                              SizedBox(width: 4,),
-                              SvgPicture.asset(AppIcons.voice),
-                            ],
-                          ),
+                          const Gap(8),
+                          const Text('Passwords',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: white,
+                                  fontWeight: FontWeight.w500
+                              )),
                         ],
                       ),
-                      SizedBox(width: 10,),
-                      Image.asset(AppIcons.duass),
+
+                      const SizedBox(width: 68),
 
 
+                      Column(
+                        children: [
+                          Image.asset(
+                            AppIcons.memories,
+                            height: 91,
+                            width: 71.035,
+                          ),
+                          const Gap(8),
+                          const Text('Memories',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: white,
+                                  fontWeight: FontWeight.w500
+                              )),
+                        ],
+                      ),
+
+                      const SizedBox(width: 68),
+                      Column(
+                        children: [
+                          Image.asset(
+                            AppIcons.plusBook,
+                            height: 91,
+                            width: 71.035,
+                          ),
+                          const Gap(8),
+                          const Text('',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: white,
+                                  fontWeight: FontWeight.w500
+                              )
+                          ),
+
+                        ],
+                      ),
+                      const SizedBox(height: 25),
 
                     ],
-
+                  ),
+                  const Gap(25),
+                  Row(
+                    children: [
+                      const Text('Quick Notes',style:
+                      TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.w600,),),
+                      const Spacer(),
+                      SvgPicture.asset(AppIcons.add),
+                    ],
                   ),
 
+                  ListView.separated(
+                    shrinkWrap: true,
+                    itemCount: containers.length,
+                    itemBuilder:(context, index)=> NoteDismiss(
+                      title: containers[index].title,
+                      underTitle: containers[index].underTitle,
+                      data: containers[index].data,
+                      image: containers[index].image,
+                      voice: containers[index].voice,),
+                    separatorBuilder: (BuildContext context, int index) {
+                      return Container();
+                    },
 
-
-                ),
-                const Gap(12),
-                Container(
-                  padding: const EdgeInsets.only(
-                    top: 8,
-                    bottom: 8,
-                    right: 30,
-                    left: 16,
                   ),
-
-                  width: 360,
-                  height: 81,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: textFieldBackgroundColor,
-                  ),
-                  child: const Column(
-                      children: [
-
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Commitment resource lecture',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 18),
-                            ),
-                            Text(
-                              'We explained the definition of commitment and it..',
-                              style:TextStyle(color: Colors.grey,fontSize: 14) ,
-                            ),
-                            Gap(8),
-                            Text(
-                              '15 November',
-                              style: TextStyle(fontSize: 12, ),
-                            )
-                          ],
-                        ),
-
-
-                      ]
-                  ),
-
-
-
-                ),
-                const Gap(12),
-                Container(
-                  padding: const EdgeInsets.only(
-                    top: 8,
-                    bottom: 8,
-                    right: 30,
-                    left: 16,
-                  ),
-
-                  width: 360,
-                  height: 81,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: textFieldBackgroundColor,
-                  ),
-                  child: const Column(
-                      children: [
-
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Commitment resource lecture',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 18),
-                            ),
-                            Text(
-                              'We explained the definition of commitment and it..',
-                              style:TextStyle(color: Colors.grey,fontSize: 14) ,
-                            ),
-                            Gap(8),
-                            Text(
-                              '15 November',
-                              style: TextStyle(fontSize: 12, ),
-                            )
-                          ],
-                        ),
-
-
-                      ]
-                  ),
-
-
-
-                ),
-                const Gap(120),
+                ],
 
 
 
 
-              ],
-
-            ),
-
+              )
           ),
-
-
         ],
 
       ),
+
 
     );
 
 
 
+
+
   }
 }
+void doNothing(BuildContext context) {}

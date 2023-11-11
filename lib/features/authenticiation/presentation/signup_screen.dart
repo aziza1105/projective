@@ -253,25 +253,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           onTap: () {}, icon: AppIcons.apple),
                     ],
                   ),
-                  const Gap(239),
+                  const Gap(230),
                   const Text(
-                      'Don’t have an account ? '
+                      'Don’t have an account ? ',
+                    style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500, )
                   ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) =>  const LoginScreen()),
-                        );
-                      },
-                      child: const Text(
-                        'Log in',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: textButtonColor,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) =>  const LoginScreen()),
+                          );
+                        },
+                        child: const Text(
+                          'Log in',
+                          style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                            color: textButtonColor,
+                          ),
                         ),
                       ),
                     ),

@@ -234,20 +234,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const Gap(16),
-                WFade(
-                  isDisable: true,
-                  onTap: () {  },
-                  child: WButton(
-                    isDisabled: !isLoginDataValid,
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const VerificationPage(),
-                        ),
-                      );
-                    },
-                    text: 'Login',
-                  ),
+                WButton(
+                  isDisabled: !isLoginDataValid,
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const VerificationPage(),
+                      ),
+                    );
+                  },
+                  text: 'Login',
                 ),
                 const Gap(56),
                 const Row(
@@ -280,26 +276,35 @@ class _LoginScreenState extends State<LoginScreen> {
                         onTap: () {}, icon: AppIcons.apple),
                   ],
                 ),
-                const Gap(239),
+                const Gap(230),
                 const Text(
-                    'Don’t have an account ?'
+                    'Don’t have an account ?',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+
+                  ),
                 ),
-                Align(
-                  alignment: Alignment.center,
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SignUpScreen()),
-                      );
-                    },
-                    child: const Text(
-                      'Sign up',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: textButtonColor,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Align(
+                    alignment: Alignment.center,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignUpScreen()),
+                        );
+                      },
+                      child:
+                      const Text(
+                        'Sign up',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                          color: textButtonColor,
+                        ),
                       ),
                     ),
                   ),

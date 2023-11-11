@@ -39,8 +39,15 @@ const _c4B7FD6 = Color(0xFF4B7FD6);
 const _c1C233A = Color(0xFF1C233A);
 const pink = Color.fromRGBO(221, 132, 145, 1);
 const ink1 = Color.fromRGBO(082, 82, 152, 1);
+const blackBlue = Color.fromRGBO(39, 44, 56, 1);
+const darkBlue = Color(0xFF272C38);
+const ligtBlue = Color(0xFF2C2B4A);
+const bluee = Color(0xFF4B7FD6);
+
+
+
 const _cfromRGBO = Color.fromRGBO(0, 110, 233, 0.10);
-const _c272C38 = Color(0xFF272C38);
+const _c272C38 = Color(0xFF272C3B);
 const _c006EE9 = Color(0xFF006EE9);
 
 class AppColors {
