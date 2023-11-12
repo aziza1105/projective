@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:product/features/authenticiation/presentation/login_screen.dart';
-import 'package:product/features/authenticiation/presentation/pages/forgot_password/forgot_password_page.dart';
+
 import 'package:product/features/authenticiation/presentation/pages/verification/verification_page.dart';
 import 'package:product/features/authenticiation/presentation/widgets/social_media_login_button.dart';
 

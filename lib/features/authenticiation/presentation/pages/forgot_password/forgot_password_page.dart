@@ -3,7 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:product/assets/constants/colors.dart';
 import 'package:product/assets/constants/images.dart';
 import 'package:product/features/authenticiation/presentation/pages/verification/verification_page.dart';
-import 'package:product/features/home/home.dart';
+
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({super.key});

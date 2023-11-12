@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-
 class Page_One extends StatefulWidget {
   const Page_One({Key? key}) : super(key: key);
-
   @override
   State<Page_One> createState() => _Page_OneState();
 }
-
 class _Page_OneState extends State<Page_One> {
   @override
   Widget build(BuildContext context) {

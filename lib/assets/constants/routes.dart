@@ -3,6 +3,7 @@ import 'package:product/core/page/error.dart';
 import 'package:product/features/authenticiation/presentation/login_screen.dart';
 import 'package:product/features/authenticiation/presentation/pages/splash.dart';
 import 'package:product/features/home/home.dart';
+import 'package:product/features/on_boarding/on_boarding_2.dart';
 
 
 class RouteGenerator {
@@ -15,6 +16,11 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (context) =>  const SplashScreen(),
         );
+      case '/on_boarding':  // Add a route for the OnBoarding screen
+        return MaterialPageRoute(
+          builder: (context) => const OnBoarding(),
+        );
+
       case '/home':
         return MaterialPageRoute(
           builder: (context) => const HomeScreen(),

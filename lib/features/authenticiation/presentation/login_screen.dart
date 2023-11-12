@@ -10,7 +10,6 @@ import 'package:product/features/authenticiation/presentation/pages/verification
 import '../../../assets/constants/colors.dart';
 import '../../../assets/constants/icons.dart';
 import '../../../core/widgets/w_divider.dart';
-import '../../../core/widgets/w_scale.dart';
 
 class LoginScreen extends StatefulWidget {
   static Route route() => MaterialPageRoute(

@@ -59,58 +59,6 @@ class _Page_OneState extends State<Page_Two> {
           ),
         ),
       ),
-      // floatingActionButton: Row(
-      // children: [
-      //   SizedBox(width: 40,),
-      // Expanded(
-      // child: GestureDetector(
-      //   onTap: (){
-      //     setState(() {
-      //     });
-      //     Navigator.push(context, MaterialPageRoute(builder: (context)=>Page_One()));
-      //
-      //   },
-      //   child:Padding(
-      //     padding: const EdgeInsets.only(right: 240,bottom: 20),
-      //     child: Container(
-      //       width: 44,
-      //       height: 44,
-      //       decoration: BoxDecoration(
-      //         borderRadius: BorderRadius.circular(12),
-      //         color: Colors.blue,
-      //       ),
-      //       child: Padding(
-      //         padding: const EdgeInsets.all(10.0),
-      //         child: SvgPicture.asset(AppIcons.previous),
-      //       ),
-      //     ),
-      //   ),
-      // ),
-      // ),
-      // SizedBox(width: 50,),
-      // GestureDetector(
-      //   onTap: (){
-      //     setState(() {
-      //     });
-      //     Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
-      //   },
-      //   child: Padding(
-      //     padding: const EdgeInsets.only(right: 10,bottom: 20),
-      //     child: Container(
-      //       width: 44,
-      //         height: 44,
-      //         decoration: BoxDecoration(
-      //           color: Colors.blue,
-      //           borderRadius: BorderRadius.circular(12)
-      //         ),
-      //         child: Padding(
-      //           padding: const EdgeInsets.all(10.0),
-      //           child: SvgPicture.asset(AppIcons.next),
-      //         )),
-      //   ),
-      // ),
-      // ],
-      // ),
     );
   }
 }

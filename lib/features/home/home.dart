@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-
 import '../../assets/constants/colors.dart';
 import '../../assets/constants/icons.dart';
 import 'navbar.dart';
